@@ -6,7 +6,7 @@ si diferite tipuri derivate de automobil in functie de caracteristicile fiecarui
   
   -- 1. Exemplificati in main ordinea apelarii constructorilor si destructorilor pentru clasele de baza si derivate
   
-  2. Limitati numarul de obiecte ce pot fi create la 1 obiect pentru una dintre clase
+  -- 2. Limitati numarul de obiecte ce pot fi create la 1 obiect pentru una dintre clase
   
   3. Implementati "Rule of three" si "Rule of five" pentru clasele derivate
   

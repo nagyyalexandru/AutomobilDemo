@@ -1,11 +1,18 @@
 #include "Coupe.h"
 #include <iostream>
 
+int Coupe::objCount = 0;
+
 Coupe::Coupe(const std::string &combustibil, const std::string &tractiune,
              const std::string &echipare, int putere) : Automobil(combustibil,
                                                                   "coupe", tractiune, echipare, putere)
 {
     std::cout << "Coupe()" << std::endl;
+    ++objCount;
+    if (objCount > COUPE_MAX_OBJ_COUNT)
+    {
+        throw std::logic_error("Error: Object creation exceeded for Coupe");
+    }
 }
 
 Coupe::Coupe(const Coupe &obj) : Automobil(obj)
@@ -15,6 +22,7 @@ Coupe::Coupe(const Coupe &obj) : Automobil(obj)
 
 Coupe::~Coupe()
 {
+    objCount--;
     std::cout << "~Coupe()" << std::endl;
 }
 
