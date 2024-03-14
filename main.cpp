@@ -22,5 +22,13 @@ int main(void)
     std::cout << "VIN : " << suv.getVIN() << std::endl
               << std::endl;
 
+    // Crearea si afisarea unui automobil de tip Coupe
+    Coupe coupe("benzina", "spate", "sports-line", 310);
+    coupe.setVIN(987123);
+    std::cout << "-- Detalii Coupe --" << std::endl;
+    coupe.printDetails();
+    std::cout << "VIN : " << coupe.getVIN() << std::endl
+              << std::endl;
+
     return 0;
 }
