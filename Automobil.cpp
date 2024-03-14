@@ -1,8 +1,7 @@
 #include "Automobil.h"
 
 // constructor
-Automobil::Automobil(const std::string & combustibil, const std::string & caroserie, const std::string & tractiune,
-        const std::string & echipare, int putere)
+Automobil::Automobil(const std::string& combustibil, const std::string& caroserie, const std::string& tractiune, const std::string & echipare, int putere)
 {
     this->combustibil = combustibil;
     this->caroserie = caroserie;
@@ -27,6 +26,7 @@ Automobil::Automobil(const Automobil &obj)
 // destructor
 Automobil::~Automobil()
 {
+    std::cout << "~Automobil()" << std::endl;
     delete VIN;
 }
 
@@ -38,4 +38,8 @@ void Automobil::setVIN(int vin)
 int Automobil::getVIN() const
 {
     return *VIN;
+}
+
+void Automobil::printDetails() const {
+    std::cout << "Combustibil: " << combustibil << "\nCaroserie: " << caroserie << "\nTractiune: " << tractiune << "\nPutere: " << putere << "\nEchipare: " << echipare << std::endl;
 }
