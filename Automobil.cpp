@@ -40,6 +40,7 @@ int Automobil::getVIN() const
     return *VIN;
 }
 
-void Automobil::printDetails() const {
+void Automobil::printDetails() const 
+{
     std::cout << "Combustibil: " << combustibil << "\nCaroserie: " << caroserie << "\nTractiune: " << tractiune << "\nPutere: " << putere << "\nEchipare: " << echipare << std::endl;
 }

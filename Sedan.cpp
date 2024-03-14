@@ -18,7 +18,8 @@ Sedan::~Sedan()
 
 }
 
-void Sedan::printDetails() const {
+void Sedan::printDetails() const
+{
     std::cout << "Tip: Sedan" << std::endl;
     Automobil::printDetails();
 }
