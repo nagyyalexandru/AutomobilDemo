@@ -3,6 +3,7 @@
 // constructor
 Automobil::Automobil(const std::string& combustibil, const std::string& caroserie, const std::string& tractiune, const std::string & echipare, int putere)
 {
+    std::cout << "Automobil()" << std::endl;
     this->combustibil = combustibil;
     this->caroserie = caroserie;
     this->tractiune = tractiune;
