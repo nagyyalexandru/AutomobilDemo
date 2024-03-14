@@ -31,6 +31,6 @@ int main(void)
               << std::endl;
 
     // object of type Coupe is limited at 1 instance, so exception will be thrown
-    Coupe coupe2("benzina", "integrala", "trend-line", 290);
+    // Coupe coupe2("benzina", "integrala", "trend-line", 290);
     return 0;
 }
