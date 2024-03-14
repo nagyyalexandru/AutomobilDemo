@@ -13,5 +13,12 @@ int main(void)
     sedan.printDetails();
     std::cout << "VIN : " << sedan.getVIN() << std::endl << std::endl;
 
+    // Crearea si afisarea unui automobil de tip SUV
+    SUV suv("motorina", "integrala", "premium", 220);
+    suv.setVIN(456321);
+    std::cout << "-- Detalii SUV --" << std::endl;
+    suv.printDetails();
+    std::cout << "VIN : " << suv.getVIN() << std::endl << std::endl;
+
     return 0;
 }
