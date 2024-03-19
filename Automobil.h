@@ -7,11 +7,13 @@ class Automobil
 {
 public:
     Automobil(const std::string &combustibil, const std::string &caroserie, const std::string &tractiune,
-              const std::string &echipare, int putere);
-    Automobil(const std::string &combustibil, const std::string &caroserie, const std::string &tractiune, int putere, const std::string &echipare);
-    // constructor
+              const std::string &echipare, int putere); // constructor
+              
+    // Rule - of - three :
     Automobil(const Automobil &obj);                    // copy constructor
+    Automobil &operator=(const Automobil &obj);         // copy-assignment operator
     ~Automobil();                                       // destructor
+
     void setVIN(int vin);
     int getVIN() const;
     virtual void printDetails() const;

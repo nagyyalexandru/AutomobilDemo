@@ -24,6 +24,24 @@ Automobil::Automobil(const Automobil &obj)
     *VIN = *(obj.VIN);  // VIN copy
 }
 
+// copy-assignment operator
+Automobil& Automobil::operator=(const Automobil& obj)
+{
+    if(this != &obj)
+    {
+        delete VIN;
+        combustibil = obj.combustibil;
+        caroserie = obj.caroserie;
+        tractiune = obj.tractiune;
+        echipare = obj.echipare;
+        putere = obj.putere;
+        VIN = new int;
+        *VIN = *(obj.VIN);
+    }
+
+    return *this;
+}
+
 // destructor
 Automobil::~Automobil()
 {
