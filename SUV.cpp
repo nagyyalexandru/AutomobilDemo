@@ -13,6 +13,16 @@ SUV::SUV(const SUV &obj) : Automobil(obj)
     std::cout << "SUV(const SUV &obj)" << std::endl;
 }
 
+SUV &SUV::operator=(const SUV &obj)
+{
+    if (this != &obj)
+    {
+        Automobil::operator=(obj); // call the copy-assignment operator of Base class
+    }
+
+    return *this;
+}
+
 SUV::~SUV()
 {
     std::cout << "~SUV()" << std::endl;
@@ -20,6 +30,6 @@ SUV::~SUV()
 
 void SUV::printDetails() const
 {
-    std::cout << "Tip: SUV (Sport Utility Vehicle)" << std::endl;
+    std::cout << "Tip: SUV (Sports Utility Vehicle)" << std::endl;
     Automobil::printDetails();
 }

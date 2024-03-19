@@ -1,7 +1,7 @@
 #include "Automobil.h"
 
 // constructor
-Automobil::Automobil(const std::string& combustibil, const std::string& caroserie, const std::string& tractiune, const std::string & echipare, int putere)
+Automobil::Automobil(const std::string &combustibil, const std::string &caroserie, const std::string &tractiune, const std::string &echipare, int putere)
 {
     std::cout << "Automobil()" << std::endl;
     this->combustibil = combustibil;
@@ -21,13 +21,13 @@ Automobil::Automobil(const Automobil &obj)
     echipare = obj.echipare;
     putere = obj.putere;
     VIN = new int;
-    *VIN = *(obj.VIN);  // VIN copy
+    *VIN = *(obj.VIN); // VIN copy
 }
 
 // copy-assignment operator
-Automobil& Automobil::operator=(const Automobil& obj)
+Automobil &Automobil::operator=(const Automobil &obj)
 {
-    if(this != &obj)
+    if (this != &obj)
     {
         delete VIN;
         combustibil = obj.combustibil;
@@ -59,7 +59,7 @@ int Automobil::getVIN() const
     return *VIN;
 }
 
-void Automobil::printDetails() const 
+void Automobil::printDetails() const
 {
     std::cout << "Combustibil: " << combustibil << "\nCaroserie: " << caroserie << "\nTractiune: " << tractiune << "\nPutere: " << putere << "\nEchipare: " << echipare << std::endl;
 }
