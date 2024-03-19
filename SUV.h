@@ -5,6 +5,7 @@
 class SUV : public Automobil
 {
 public:
+    SUV();
     SUV(const std::string &combustibil, const std::string &tractiune, const std::string &echipare,
         int putere);                // constructor
 

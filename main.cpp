@@ -17,10 +17,20 @@ int main(void)
     // Crearea si afisarea unui automobil de tip SUV
     SUV suv("motorina", "integrala", "premium", 220);
     suv.setVIN(456321);
-    std::cout << "-- Detalii SUV --" << std::endl;
+    std::cout << "-- Detalii SUV (1st object) --" << std::endl;
     suv.printDetails();
     std::cout << "VIN : " << suv.getVIN() << std::endl
               << std::endl;
+
+    // Copiem obiectul 'suv' intr-o variabila 'suvCpy' de tip SUV
+    SUV suvCpy = suv;       // apelam copy constructor
+    std::cout << "-- Detalii SUV (copy-object) --" << std::endl;
+    suvCpy.printDetails();
+    std::cout << "VIN : " << suvCpy.getVIN() << std::endl
+              << std::endl;
+
+    SUV suv2;
+    suv2 = suv;     // apelam copy-assignment operator
 
     // Crearea si afisarea unui automobil de tip Coupe
     Coupe coupe("benzina", "spate", "sports-line", 310);

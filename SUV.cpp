@@ -1,6 +1,11 @@
 #include "SUV.h"
 #include <iostream>
 
+SUV::SUV() : Automobil("", "SUV", "", "", 0)
+{
+
+}
+
 SUV::SUV(const std::string &combustibil, const std::string &tractiune,
          const std::string &echipare, int putere) : Automobil(combustibil,
                                                               "SUV", tractiune, echipare, putere)
@@ -16,6 +21,7 @@ SUV::SUV(const SUV &obj) : Automobil(obj)
 SUV &SUV::operator=(const SUV &obj)
 {
     if (this != &obj)
+    std::cout << "SUV operator=  // (copy assignment operator)" << std::endl;
     {
         Automobil::operator=(obj); // call the copy-assignment operator of Base class
     }

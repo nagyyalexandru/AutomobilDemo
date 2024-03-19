@@ -15,6 +15,7 @@ Automobil::Automobil(const std::string &combustibil, const std::string &caroseri
 // copy constructor
 Automobil::Automobil(const Automobil &obj)
 {
+    std::cout << "Automobil(const Automobil &obj)" << std::endl;
     combustibil = obj.combustibil;
     caroserie = obj.caroserie;
     tractiune = obj.tractiune;
@@ -27,6 +28,7 @@ Automobil::Automobil(const Automobil &obj)
 // copy-assignment operator
 Automobil &Automobil::operator=(const Automobil &obj)
 {
+    std::cout << "Automobil operator=  // (copy assignment operator)" << std::endl;
     if (this != &obj)
     {
         delete VIN;
