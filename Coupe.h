@@ -10,13 +10,15 @@ private:
     static int objCount;
 
 public:
-    Coupe();
+    Coupe();                            // default constructor
     Coupe(const std::string &combustibil, const std::string &tractiune, const std::string &echipare,
-          int putere);
+          int putere);                  // parametrized constructor
           
-    // Rule - of - three
+    // Rule - of - five
     Coupe(const Coupe &obj);            // copy constructor
     Coupe &operator=(const Coupe &obj); // copy-assignment operator
+    Coupe(Coupe &&obj);                 // move constructor
+    Coupe &operator=(Coupe &&obj);      // move assignment operator
     ~Coupe();                           // destructor
 
     void printDetails() const override;

@@ -44,6 +44,43 @@ Coupe &Coupe::operator=(const Coupe &obj)
     return *this;
 }
 
+// Move constructor
+Coupe::Coupe(Coupe &&obj) : Automobil(obj)
+{
+    // Copy base class members
+    combustibil = obj.combustibil;
+    caroserie = obj.caroserie;
+    tractiune = obj.tractiune;
+    echipare = obj.echipare;
+    putere = obj.putere;
+
+    // Transfer ownership of VIN
+    VIN = obj.VIN;
+    obj.VIN = nullptr;
+}
+
+// Move assignment operator
+Coupe &Coupe::operator=(Coupe &&obj)
+{
+    if (this != &obj)
+    {
+        // Copy base class members
+        combustibil = obj.combustibil;
+        caroserie = obj.caroserie;
+        tractiune = obj.tractiune;
+        echipare = obj.echipare;
+        putere = obj.putere;
+
+        // Release current resources
+        delete VIN;
+
+        // Transfer ownership of VIN
+        VIN = obj.VIN;
+        obj.VIN = nullptr;
+    }
+    return *this;
+}
+
 Coupe::~Coupe()
 {
     objCount--;

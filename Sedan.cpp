@@ -29,6 +29,43 @@ Sedan &Sedan::operator=(const Sedan &obj)
     return *this;
 }
 
+// Move constructor
+Sedan::Sedan(Sedan &&obj) : Automobil(obj)
+{
+    // Copy base class members
+    combustibil = obj.combustibil;
+    caroserie = obj.caroserie;
+    tractiune = obj.tractiune;
+    echipare = obj.echipare;
+    putere = obj.putere;
+
+    // Transfer ownership of VIN
+    VIN = obj.VIN;
+    obj.VIN = nullptr;
+}
+
+// Move assignment operator
+Sedan &Sedan::operator=(Sedan &&obj)
+{
+    if (this != &obj)
+    {
+        // Copy base class members
+        combustibil = obj.combustibil;
+        caroserie = obj.caroserie;
+        tractiune = obj.tractiune;
+        echipare = obj.echipare;
+        putere = obj.putere;
+
+        // Release current resources
+        delete VIN;
+
+        // Transfer ownership of VIN
+        VIN = obj.VIN;
+        obj.VIN = nullptr;
+    }
+    return *this;
+}
+
 Sedan::~Sedan()
 {
     std::cout << "~Sedan()" << std::endl;

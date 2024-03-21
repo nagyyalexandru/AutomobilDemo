@@ -51,21 +51,21 @@ int main(void)
     std::cout << "VIN : " << suv1.getVIN() << std::endl
               << std::endl;
 
-    // move constructor
+    // Apelam move constructor
     SUV suvMV = SUV(suv1);
 
-    // verificam daca mutarea resurselor s-a efectuat cu succes
+    // Verificam daca mutarea resurselor s-a efectuat cu succes
     std::cout << "Dupa apelul move-constructor:\n";
     std::cout << "-- Detalii suv1 --" << std::endl;
     suv1.printDetails();
     std::cout << "VIN : " << suv1.getVIN() << std::endl
               << std::endl;
 
-    // Move copy assignment
+    // Apelam move assignment operator
     suv1 = SUV(suvMV);
 
     // Verificam daca resursele lui suv2 au fost mutate
-    std::cout << "Dupa operatorul de atribuire de mutare:\n";
+    std::cout << "Dupa apelul move assignment operator:\n";
     std::cout << "-- Detalii suvMV --" << std::endl;
     suvMV.printDetails();
     std::cout << "VIN : " << suvMV.getVIN() << std::endl
