@@ -10,4 +10,4 @@ si diferite tipuri derivate de automobil in functie de caracteristicile fiecarui
   
   -- 3. Implementati "Rule of three" si "Rule of five" pentru clasele derivate
   
-  4. Implementati o clasa utilitara ale carei functii sa poata fi apelate fara a folosi un obiect (functii de printare custom, de calcul al mediei etc)
+  -- 4. Implementati o clasa utilitara ale carei functii sa poata fi apelate fara a folosi un obiect (functii de printare custom, de calcul al mediei etc)
