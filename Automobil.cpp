@@ -44,6 +44,32 @@ Automobil &Automobil::operator=(const Automobil &obj)
     return *this;
 }
 
+// move constructor
+Automobil::Automobil(Automobil && obj) : combustibil(obj.combustibil), caroserie(obj.caroserie),
+    tractiune(obj.tractiune), echipare(obj.echipare), putere(obj.putere) {
+    obj.VIN = nullptr;
+}
+
+// move assignment operator
+Automobil& Automobil::operator=(Automobil && obj)
+{
+    if(this != &obj)
+    {
+        // Move members
+        combustibil = obj.combustibil;
+        caroserie = obj.caroserie;
+        tractiune = obj.tractiune;
+        echipare = obj.echipare;
+        putere = obj.putere;
+
+        delete VIN;
+        VIN = obj.VIN;
+        obj.VIN = nullptr;
+    }
+
+    return *this;
+}
+
 // destructor
 Automobil::~Automobil()
 {

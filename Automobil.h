@@ -9,9 +9,11 @@ public:
     Automobil(const std::string &combustibil, const std::string &caroserie, const std::string &tractiune,
               const std::string &echipare, int putere); // constructor
 
-    // Rule - of - three :
+    // Rule - of - five :
     Automobil(const Automobil &obj);                    // copy constructor
     Automobil &operator=(const Automobil &obj);         // copy-assignment operator
+    Automobil(Automobil && obj);                        // move constructor
+    Automobil& operator=(Automobil && obj);             // move assignment operator
     ~Automobil();                                       // destructor
 
     void setVIN(int vin);
