@@ -42,5 +42,34 @@ int main(void)
 
     // object of type Coupe is limited at 1 instance, so exception will be thrown
     // Coupe coupe2("benzina", "integrala", "trend-line", 290);
+
+    // Cream un nou obiect SUV
+    SUV suv1("Benzina", "4WD", "Luxury", 400);
+    suv1.setVIN(11223344);
+    std::cout << "-- Detalii suv1 --" << std::endl;
+    suv1.printDetails();
+    std::cout << "VIN : " << suv1.getVIN() << std::endl
+              << std::endl;
+
+    // move constructor
+    SUV suvMV = SUV(suv1);
+
+    // verificam daca mutarea resurselor s-a efectuat cu succes
+    std::cout << "Dupa apelul move-constructor:\n";
+    std::cout << "-- Detalii suv1 --" << std::endl;
+    suv1.printDetails();
+    std::cout << "VIN : " << suv1.getVIN() << std::endl
+              << std::endl;
+
+    // Move copy assignment
+    suv1 = SUV(suvMV);
+
+    // Verificam daca resursele lui suv2 au fost mutate
+    std::cout << "Dupa operatorul de atribuire de mutare:\n";
+    std::cout << "-- Detalii suvMV --" << std::endl;
+    suvMV.printDetails();
+    std::cout << "VIN : " << suvMV.getVIN() << std::endl
+              << std::endl;
+
     return 0;
 }

@@ -45,8 +45,15 @@ Automobil &Automobil::operator=(const Automobil &obj)
 }
 
 // move constructor
-Automobil::Automobil(Automobil && obj) : combustibil(obj.combustibil), caroserie(obj.caroserie),
-    tractiune(obj.tractiune), echipare(obj.echipare), putere(obj.putere) {
+Automobil::Automobil(Automobil && obj)
+{
+    combustibil = obj.combustibil;
+    caroserie = obj.caroserie;
+    tractiune = obj.tractiune;
+    echipare = obj.echipare;
+    putere = obj.putere;
+
+    VIN = obj.VIN;
     obj.VIN = nullptr;
 }
 

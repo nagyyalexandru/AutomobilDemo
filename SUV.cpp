@@ -6,9 +6,8 @@ SUV::SUV() : Automobil("", "SUV", "", "", 0)
     std::cout << "SUV()" << std::endl;
 }
 
-SUV::SUV(const std::string &combustibil, const std::string &tractiune,
-         const std::string &echipare, int putere) : Automobil(combustibil,
-                                                              "SUV", tractiune, echipare, putere)
+SUV::SUV(const std::string &combustibil, const std::string &tractiune, const std::string &echipare,
+         int putere) : Automobil(combustibil, "SUV", tractiune, echipare, putere)
 {
     std::cout << "SUV(const string, const string, const string, int)" << std::endl;
 }
@@ -26,6 +25,43 @@ SUV &SUV::operator=(const SUV &obj)
         Automobil::operator=(obj); // call the copy-assignment operator of Base class
     }
 
+    return *this;
+}
+
+// Move constructor
+SUV::SUV(SUV &&obj) : Automobil(obj)
+{
+    // Copy base class members
+    combustibil = obj.combustibil;
+    caroserie = obj.caroserie;
+    tractiune = obj.tractiune;
+    echipare = obj.echipare;
+    putere = obj.putere;
+
+    // Transfer ownership of VIN
+    VIN = obj.VIN;
+    obj.VIN = nullptr;
+}
+
+// Move assignment operator
+SUV &SUV::operator=(SUV &&obj)
+{
+    if (this != &obj)
+    {
+        // Copy base class members
+        combustibil = obj.combustibil;
+        caroserie = obj.caroserie;
+        tractiune = obj.tractiune;
+        echipare = obj.echipare;
+        putere = obj.putere;
+
+        // Release current resources
+        delete VIN;
+
+        // Transfer ownership of VIN
+        VIN = obj.VIN;
+        obj.VIN = nullptr;
+    }
     return *this;
 }
 
