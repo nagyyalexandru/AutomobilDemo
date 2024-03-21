@@ -3,6 +3,7 @@
 #include "Sedan.h"
 #include "Coupe.h"
 #include "SUV.h"
+#include "Utility.h"
 
 int main(void)
 {
@@ -70,6 +71,11 @@ int main(void)
     suvMV.printDetails();
     std::cout << "VIN : " << suvMV.getVIN() << std::endl
               << std::endl;
+
+    Utility::Hello("Hello from main.cpp !");
+
+    std::vector<int> nums = {1, 2, 3, 4, 5};
+    std::cout << "Average of numbers is : " << Utility::Average(nums) << std::endl << std::endl;
 
     return 0;
 }
