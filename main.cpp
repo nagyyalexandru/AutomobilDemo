@@ -23,7 +23,8 @@ int main(void)
     std::cout << "VIN : " << coupe1.getVIN() << std::endl << std::endl;
     Utility::PrintCharacter('-');
 
-    /* Object of type Coupe is limited at 1 instance, so exception will be thrown */
+    /* Object of type Coupe is limited at 1 instance, so exception will be thrown 
+       if we un-comment the following line */
     // Coupe coupe2("benzina", "integrala", "trend-line", 290);
 
     /* Crearea si afisarea unui automobil de tip SUV */
