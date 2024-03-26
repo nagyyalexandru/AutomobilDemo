@@ -7,70 +7,58 @@
 
 int main(void)
 {
-    // Crearea si afisarea unui automobil de tip Sedan
-    Sedan sedan("benzina", "fata", "standard", 150);
-    sedan.setVIN(123456);
-    std::cout << "-- Detalii Sedan --" << std::endl;
-    sedan.printDetails();
-    std::cout << "VIN : " << sedan.getVIN() << std::endl
-              << std::endl;
+    /* Crearea si afisarea unui automobil de tip Sedan */
+    Sedan sedan1("Benzina", "Fata", "Standard", 170);
+    sedan1.setVIN(123456);
+    std::cout << "-- Detalii sedan1 --" << std::endl;
+    sedan1.printDetails();
+    std::cout << "VIN : " << sedan1.getVIN() << std::endl << std::endl;
+    Utility::PrintCharacter('-');
 
-    // Crearea si afisarea unui automobil de tip SUV
-    SUV suv("motorina", "integrala", "premium", 220);
-    suv.setVIN(456321);
-    std::cout << "-- Detalii SUV (1st object) --" << std::endl;
-    suv.printDetails();
-    std::cout << "VIN : " << suv.getVIN() << std::endl
-              << std::endl;
+    /* Crearea si afisarea unui automobil de tip Coupe */
+    Coupe coupe1("Benzina", "Spate", "Sport-Line", 310);
+    coupe1.setVIN(987123);
+    std::cout << "-- Detalii coupe1 --" << std::endl;
+    coupe1.printDetails();
+    std::cout << "VIN : " << coupe1.getVIN() << std::endl << std::endl;
+    Utility::PrintCharacter('-');
 
-    // Copiem obiectul 'suv' intr-o variabila 'suvCpy' de tip SUV
-    SUV suvCpy = suv;       // apelam copy constructor
-    std::cout << "-- Detalii SUV (copy-object) --" << std::endl;
-    suvCpy.printDetails();
-    std::cout << "VIN : " << suvCpy.getVIN() << std::endl
-              << std::endl;
-
-    SUV suv2;
-    suv2 = suv;     // apelam copy-assignment operator
-
-    // Crearea si afisarea unui automobil de tip Coupe
-    Coupe coupe("benzina", "spate", "sports-line", 310);
-    coupe.setVIN(987123);
-    std::cout << "-- Detalii Coupe --" << std::endl;
-    coupe.printDetails();
-    std::cout << "VIN : " << coupe.getVIN() << std::endl
-              << std::endl;
-
-    // object of type Coupe is limited at 1 instance, so exception will be thrown
+    /* Object of type Coupe is limited at 1 instance, so exception will be thrown */
     // Coupe coupe2("benzina", "integrala", "trend-line", 290);
 
-    // Cream un nou obiect SUV
-    SUV suv1("Benzina", "4WD", "Luxury", 400);
-    suv1.setVIN(11223344);
+    /* Crearea si afisarea unui automobil de tip SUV */
+    SUV suv1("Motorina", "Integrala", "Premium", 290);
+    suv1.setVIN(223344);
     std::cout << "-- Detalii suv1 --" << std::endl;
     suv1.printDetails();
-    std::cout << "VIN : " << suv1.getVIN() << std::endl
-              << std::endl;
+    std::cout << "VIN : " << suv1.getVIN() << std::endl << std::endl;
+    Utility::PrintCharacter('-');
 
-    // Apelam move constructor
-    SUV suvMV = SUV(suv1);
+    SUV suv2 = suv1;       // apelam copy constructor
+    std::cout << "-- Detalii SUV (copy-object) --" << std::endl;
+    suv2.printDetails();
+    std::cout << "VIN : " << suv2.getVIN() << std::endl << std::endl;
+    Utility::PrintCharacter('-');
 
-    // Verificam daca mutarea resurselor s-a efectuat cu succes
-    std::cout << "Dupa apelul move-constructor:\n";
-    std::cout << "-- Detalii suv1 --" << std::endl;
-    suv1.printDetails();
-    std::cout << "VIN : " << suv1.getVIN() << std::endl
-              << std::endl;
+    SUV suv3;        // cream obiectul suv3 pentru a exemplifica folosirea copy-assignment-operator
+    suv3 = suv1;     // apelam copy-assignment operator
+    std::cout << "-- Detalii SUV (folosind copy-assignment operator) --" << std::endl;
+    suv3.printDetails();
+    std::cout << "VIN : " << suv3.getVIN() << std::endl << std::endl;
+    Utility::PrintCharacter('-');
 
-    // Apelam move assignment operator
-    suv1 = SUV(suvMV);
+    /* Mutarea unui obiect SUV */
+    std::cout << "Mutarea unui obiect SUV:" << std::endl;
+    SUV suv4 = std::move(suv1);
+    std::cout << "VIN obiect Mutat SUV: " << suv4.getVIN() << std::endl << std::endl;
+    Utility::PrintCharacter('-');
 
-    // Verificam daca resursele lui suv2 au fost mutate
-    std::cout << "Dupa apelul move assignment operator:\n";
-    std::cout << "-- Detalii suvMV --" << std::endl;
-    suvMV.printDetails();
-    std::cout << "VIN : " << suvMV.getVIN() << std::endl
-              << std::endl;
+    /* Mutarea unui obiect Sedan folosind move-assignment operator */
+    std::cout << "Mutarea unui obiect Sedan (folosind move-assignment operator):" << std::endl;
+    Sedan sedan2;
+    sedan2 = std::move(sedan1);
+    std::cout << "VIN obiect Mutat Sedan (folosind move-assignment operator): " << sedan2.getVIN() << std::endl << std::endl;
+    Utility::PrintCharacter('-');
 
     Utility::Hello("Hello from main.cpp !");
 

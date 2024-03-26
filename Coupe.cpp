@@ -15,9 +15,8 @@ Coupe::Coupe() : Automobil("", "Coupe", "", "", 0)
     std::cout << "Coupe()" << std::endl;
 }
 
-Coupe::Coupe(const std::string &combustibil, const std::string &tractiune,
-             const std::string &echipare, int putere) : Automobil(combustibil,
-                                                                  "coupe", tractiune, echipare, putere)
+Coupe::Coupe(const std::string &combustibil, const std::string &tractiune, const std::string &echipare, int putere)
+    : Automobil(combustibil, "Coupe", tractiune, echipare, putere)
 {
     ++objCount;
 
@@ -44,39 +43,13 @@ Coupe &Coupe::operator=(const Coupe &obj)
     return *this;
 }
 
-// Move constructor
-Coupe::Coupe(Coupe &&obj) : Automobil(obj)
-{
-    // Copy base class members
-    combustibil = obj.combustibil;
-    caroserie = obj.caroserie;
-    tractiune = obj.tractiune;
-    echipare = obj.echipare;
-    putere = obj.putere;
-
-    // Transfer ownership of VIN
-    VIN = obj.VIN;
-    obj.VIN = nullptr;
+Coupe::Coupe(Coupe &&obj) : Automobil(std::move(obj)) {
+    std::cout << "Coupe(Coupe &&obj)" << std::endl;
 }
 
-// Move assignment operator
-Coupe &Coupe::operator=(Coupe &&obj)
-{
-    if (this != &obj)
-    {
-        // Copy base class members
-        combustibil = obj.combustibil;
-        caroserie = obj.caroserie;
-        tractiune = obj.tractiune;
-        echipare = obj.echipare;
-        putere = obj.putere;
-
-        // Release current resources
-        delete VIN;
-
-        // Transfer ownership of VIN
-        VIN = obj.VIN;
-        obj.VIN = nullptr;
+Coupe& Coupe::operator=(Coupe &&obj) {
+    if (this != &obj) {
+        Automobil::operator=(std::move(obj));
     }
     return *this;
 }

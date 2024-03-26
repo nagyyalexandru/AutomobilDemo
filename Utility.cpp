@@ -17,3 +17,12 @@ void Utility::Hello(const std::string & message)
 {
     std::cout << "Message from Utility class : " << message << std::endl;
 }
+
+void Utility::PrintCharacter(char character)
+{
+    for (int i = 0; i < NUM_OF_CHARS; ++i)
+    {
+        std::cout << character;
+    }
+    std::cout << std::endl;
+}

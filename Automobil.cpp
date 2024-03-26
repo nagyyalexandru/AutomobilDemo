@@ -2,78 +2,55 @@
 
 // constructor
 Automobil::Automobil(const std::string &combustibil, const std::string &caroserie, const std::string &tractiune, const std::string &echipare, int putere)
+    : combustibil(combustibil), caroserie(caroserie), tractiune(tractiune), echipare(echipare), putere(putere), VIN(std::make_unique<int>())
 {
     std::cout << "Automobil()" << std::endl;
-    this->combustibil = combustibil;
-    this->caroserie = caroserie;
-    this->tractiune = tractiune;
-    this->echipare = echipare;
-    this->putere = putere;
-    VIN = new int;
 }
 
 // copy constructor
 Automobil::Automobil(const Automobil &obj)
+    : combustibil(obj.combustibil), caroserie(obj.caroserie), tractiune(obj.tractiune), echipare(obj.echipare), putere(obj.putere), VIN(std::make_unique<int>(*obj.VIN))
 {
     std::cout << "Automobil(const Automobil &obj)" << std::endl;
-    combustibil = obj.combustibil;
-    caroserie = obj.caroserie;
-    tractiune = obj.tractiune;
-    echipare = obj.echipare;
-    putere = obj.putere;
-    VIN = new int;
-    *VIN = *(obj.VIN); // VIN copy
 }
 
-// copy-assignment operator
+// copy assignment operator
 Automobil &Automobil::operator=(const Automobil &obj)
 {
     std::cout << "Automobil operator=  // (copy assignment operator)" << std::endl;
     if (this != &obj)
     {
-        delete VIN;
         combustibil = obj.combustibil;
         caroserie = obj.caroserie;
         tractiune = obj.tractiune;
         echipare = obj.echipare;
         putere = obj.putere;
-        VIN = new int;
         *VIN = *(obj.VIN);
     }
-
     return *this;
 }
 
 // move constructor
-Automobil::Automobil(Automobil && obj)
+Automobil::Automobil(Automobil &&obj)
+    : combustibil(std::move(obj.combustibil)), caroserie(std::move(obj.caroserie)), tractiune(std::move(obj.tractiune)),
+      echipare(std::move(obj.echipare)), putere(obj.putere), VIN(std::move(obj.VIN))
 {
-    combustibil = obj.combustibil;
-    caroserie = obj.caroserie;
-    tractiune = obj.tractiune;
-    echipare = obj.echipare;
-    putere = obj.putere;
-
-    VIN = obj.VIN;
     obj.VIN = nullptr;
 }
 
 // move assignment operator
-Automobil& Automobil::operator=(Automobil && obj)
+Automobil &Automobil::operator=(Automobil &&obj)
 {
-    if(this != &obj)
+    if (this != &obj)
     {
-        // Move members
-        combustibil = obj.combustibil;
-        caroserie = obj.caroserie;
-        tractiune = obj.tractiune;
-        echipare = obj.echipare;
+        combustibil = std::move(obj.combustibil);
+        caroserie = std::move(obj.caroserie);
+        tractiune = std::move(obj.tractiune);
+        echipare = std::move(obj.echipare);
         putere = obj.putere;
-
-        delete VIN;
-        VIN = obj.VIN;
+        VIN = std::move(obj.VIN);
         obj.VIN = nullptr;
     }
-
     return *this;
 }
 
@@ -81,19 +58,21 @@ Automobil& Automobil::operator=(Automobil && obj)
 Automobil::~Automobil()
 {
     std::cout << "~Automobil()" << std::endl;
-    delete VIN;
 }
 
+// VIN setter
 void Automobil::setVIN(int vin)
 {
     *VIN = vin;
 }
 
+// VIN getter
 int Automobil::getVIN() const
 {
     return *VIN;
 }
 
+// print details method
 void Automobil::printDetails() const
 {
     std::cout << "Combustibil: " << combustibil << "\nCaroserie: " << caroserie << "\nTractiune: " << tractiune << "\nPutere: " << putere << "\nEchipare: " << echipare << std::endl;

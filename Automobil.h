@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <memory>
 
 class Automobil
 {
@@ -26,5 +27,5 @@ protected:
     std::string tractiune;
     std::string echipare;
     int putere;
-    int *VIN;
+    std::unique_ptr<int> VIN;
 };
