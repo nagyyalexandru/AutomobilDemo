@@ -1,0 +1,3 @@
+/home/projectx/AutomobilDemo/build/CMakeFiles/rebuild_cache.dir
+/home/projectx/AutomobilDemo/build/CMakeFiles/edit_cache.dir
+/home/projectx/AutomobilDemo/build/CMakeFiles/AutomobilDemo.dir

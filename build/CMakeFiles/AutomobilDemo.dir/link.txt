@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/AutomobilDemo.dir/src/Automobil.cpp.o CMakeFiles/AutomobilDemo.dir/src/Coupe.cpp.o CMakeFiles/AutomobilDemo.dir/src/SUV.cpp.o CMakeFiles/AutomobilDemo.dir/src/Sedan.cpp.o CMakeFiles/AutomobilDemo.dir/src/Utility.cpp.o CMakeFiles/AutomobilDemo.dir/src/main.cpp.o  -o AutomobilDemo 
