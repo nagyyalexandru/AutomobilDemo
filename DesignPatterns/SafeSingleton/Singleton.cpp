@@ -54,8 +54,8 @@ int main(void)
 	Singleton &singleton = Singleton::getInstance();
 
 	// Use singleton instance
-	singleton.setData(42);
-	std::cout << "Data in Singleton instance: " << singleton.getData() << std::endl
+	singleton.setData(91);
+	std::cout << "Data in Singleton instance : " << singleton.getData() << std::endl
 			  << std::endl;
 
 	// Try to instantiate another Singleton instance (won't compile due to deleted copy constructor)
