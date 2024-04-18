@@ -7,6 +7,8 @@
 #include <arpa/inet.h>
 #include <sstream>
 
+#define COMM_PORT 8888
+
 class Observer
 {
 public:
@@ -144,8 +146,8 @@ public:
         std::string line;
         while (std::getline(iss, line))
         {
-            std::cout << "Received message from server: " << line << std::endl;
-            outputFile << "Received from server: " << line << std::endl;
+            std::cout << "Message sent to server: " << line << std::endl;
+            outputFile << "Message sent to server: " << line << std::endl;
         }
     }
 };
@@ -153,7 +155,7 @@ public:
 int main()
 {
     // Server initialization
-    Server server(8888, "server_log.txt");
+    Server server(COMM_PORT, "server_log.txt");
 
     // Client initialization
     int clientSocket = socket(AF_INET, SOCK_STREAM, 0);
@@ -165,7 +167,7 @@ int main()
 
     sockaddr_in serverAddr;
     serverAddr.sin_family = AF_INET;
-    serverAddr.sin_port = htons(8888);                     // Server port
+    serverAddr.sin_port = htons(COMM_PORT);                     // Server port
     inet_pton(AF_INET, "127.0.0.1", &serverAddr.sin_addr); // Server IP address
 
     if (connect(clientSocket, (struct sockaddr *)&serverAddr, sizeof(serverAddr)) < 0)
